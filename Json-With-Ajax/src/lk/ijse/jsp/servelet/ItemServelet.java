@@ -95,10 +95,10 @@ public class ItemServelet extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String cusId = req.getParameter ("id");
-        String cusName = req.getParameter ("name");
-        String cusAddress = req.getParameter ("address");
-        String cusSalary = req.getParameter ("salary");
+        String itemID = req.getParameter ("id");
+        String itemDes = req.getParameter ("des");
+        String itemUp = req.getParameter ("up");
+        String itemQty = req.getParameter ("qty");
 
         PrintWriter writer = resp.getWriter ();
 
@@ -106,11 +106,11 @@ public class ItemServelet extends HttpServlet {
 
             Class.forName ("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection ("jdbc:mysql://localhost:3306/AjaxJson", "root", "12345678");
-            PreparedStatement pstm3 = connection.prepareStatement ("update Customer set name=?,address=?,salary=? where id=?");
-            pstm3.setObject (4, cusId);
-            pstm3.setObject (1, cusName);
-            pstm3.setObject (2, cusAddress);
-            pstm3.setObject (3, cusSalary);
+            PreparedStatement pstm3 = connection.prepareStatement ("update Item set ItemName=?,UnitPrice=?,ItemQty=? where ItemCode=?");
+            pstm3.setObject (4, itemID);
+            pstm3.setObject (1, itemDes);
+            pstm3.setObject (2, itemUp);
+            pstm3.setObject (3, itemQty);
             if (pstm3.executeUpdate () > 0) {
                 resp.addHeader("Content-Type","application/json");
                 JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
@@ -143,7 +143,7 @@ public class ItemServelet extends HttpServlet {
         try {
             Class.forName ("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection ("jdbc:mysql://localhost:3306/AjaxJson", "root", "12345678");
-            PreparedStatement pstm2 = connection.prepareStatement ("delete from Customer where id=?");
+            PreparedStatement pstm2 = connection.prepareStatement ("delete from item where ItemCode=?");
             pstm2.setObject (1, cusID);
             if (pstm2.executeUpdate () > 0) {
                 resp.addHeader("Content-Type","application/json");
