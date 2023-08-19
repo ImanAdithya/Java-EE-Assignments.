@@ -144,6 +144,38 @@
             }
         });
     });
+
+    $("#btnUpdate").click(function () {
+        let cusId = $("#txtCustomerID").val();
+        let cusName = $("#txtCustomerName").val();
+        let cusAddress = $("#txtCustomerAddress").val();
+
+        $.ajax({
+            url:'customer?id='+cusId+'&name='+cusName+'&address='+cusAddress,
+            method:'PUT',
+            success:function (res) {
+                alert("Customer Updated Succus");
+                getAllCustomer();
+            },
+            error:function (err) {
+                alert("Something Went wrong...");
+            }
+        });
+    });
+
+    $("#btnCusDelete").click(function () {
+        let cusId = $("#txtCustomerID").val();
+        $.ajax({
+            url:'customer?id='+cusId,
+            method:'DELETE',
+            success:function () {
+                getAllCustomer();
+                alert("Customer Deleted Succuss");
+            },error:function () {
+                alert("Something Went Wrong..")
+            }
+        });
+    });
 </script>
 </body>
 </html>
