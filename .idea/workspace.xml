@@ -23,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -40,11 +41,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "/Users/imanadithya/Software Engineering/IJSE/2SEMESTER/Java 2E Assignments/Java-EE-Assignments",
+    "last_opened_file_path": "/Users/imanadithya/Software Engineering/IJSE/2SEMESTER/Java 2E Assignments/Java-EE-Assignments/Json-With-Ajax/web/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,6 +57,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Json-With-Ajax/web/assets" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="Java-EE-Assignments" />
@@ -159,7 +166,7 @@
       <option name="presentableId" value="Default" />
       <updated>1692415103961</updated>
       <workItem from="1692415107182" duration="146000" />
-      <workItem from="1692415273647" duration="370000" />
+      <workItem from="1692415273647" duration="1663000" />
     </task>
     <servers />
   </component>
