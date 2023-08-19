@@ -76,9 +76,10 @@ public class CustomerServelet extends HttpServlet {
 
                 resp.addHeader("Content-Type","application/json");
                 JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
-                cussAdd.add ("state","OK");
+                cussAdd.add ("state","200");
                 cussAdd.add ("massage"," Customer Added Succuss");
                 cussAdd.add ("data","");
+                resp.setStatus (200);
                 writer.print(cussAdd.build());
 
             }
@@ -115,7 +116,13 @@ public class CustomerServelet extends HttpServlet {
             pstm3.setObject (2, cusAddress);
             pstm3.setObject (3, cusSalary);
             if (pstm3.executeUpdate () > 0) {
-                System.out.println ("Customer Updated");
+                resp.addHeader("Content-Type","application/json");
+                JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
+                cussAdd.add ("state","200");
+                cussAdd.add ("massage"," Customer Updated Succuss");
+                cussAdd.add ("data","");
+                resp.setStatus (200);
+                writer.print(cussAdd.build());
             } else {
                 throw new SQLException ();
             }
@@ -143,7 +150,13 @@ public class CustomerServelet extends HttpServlet {
             PreparedStatement pstm2 = connection.prepareStatement ("delete from Customer where id=?");
             pstm2.setObject (1, cusID);
             if (pstm2.executeUpdate () > 0) {
-                resp.getWriter ().println ("Customer Deleted..!");
+                resp.addHeader("Content-Type","application/json");
+                JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
+                cussAdd.add ("state","200");
+                cussAdd.add ("massage"," Customer Deleted Succuss");
+                cussAdd.add ("data","");
+                resp.setStatus (200);
+                writer.print(cussAdd.build());
             }
         } catch (SQLException | ClassNotFoundException e) {
             resp.addHeader("Content-Type","application/json");
