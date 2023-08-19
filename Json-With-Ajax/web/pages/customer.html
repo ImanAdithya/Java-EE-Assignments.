@@ -101,6 +101,35 @@
 <script src="../assets/js/bootstrap.min.js"></script>
 
 <script>
+
+    getAllCustomer();
+    function getAllCustomer() {
+        $("#tblCustomer").empty();
+
+        $.ajax({
+            url: 'customer',
+            method: 'get',
+            success:function (customer) {
+                for (let i in customer) {
+                    let cus = customer[i];
+                    let id = cus.id;
+                    let name = cus.name;
+                    let address = cus.address;
+                    let row=`<tr><td>${id}</td><td>${name}</td><td>${address}</td></tr>`;
+                    $("#tblCustomer").append(row);
+                }
+            },
+            error:function (err) {
+                alert("ERROR LOAD DATA")
+            }
+        });
+    }
+
+    $("#btnGetAll").click(function () {
+       getAllCustomer();
+    });
+
+
     $("#btnSaveCustomer").click(function () {
         let formData=$("#customerForm").serialize();
         $.ajax({
