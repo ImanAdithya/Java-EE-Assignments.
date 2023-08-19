@@ -7,6 +7,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="Json-With-Ajax" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javax.json-1.1.4" />
+          <element id="library" level="project" name="javax.json-api-1.1.4" />
+          <element id="library" level="project" name="mysql-connector-j-8.1.0" />
+        </element>
       </element>
     </root>
   </artifact>

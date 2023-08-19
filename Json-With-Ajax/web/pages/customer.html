@@ -29,12 +29,12 @@
 <header class="jumbotron bg-primary text-white p-3">
     <h1 class="position-absolute" id="nav"></h1>
     <ul class="list-group list-group-horizontal text-danger justify-content-end font-weight-bold">
-        <li class="list-group-item bg-white" id="lnkHome"><a href="../index.jsp">Home</a></li>
+        <li class="list-group-item bg-white" id="lnkHome"><a href="">Home</a></li>
         <li class="list-group-item bg-danger text-white" id="lnkCustomer"><a class="text-white"
-                                                                             href="/jsonp/pages/customer">Customer</a>
+                                                                             href="/Json-With-Ajax/pages/customer">Customer</a>
         </li>
-        <li class="list-group-item bg-white" id="lnkItem"><a href="/jsonp/pages/item">Item</a></li>
-        <li class="list-group-item bg-white" id="lnkOrders"><a href="purchase-order.jsp">Orders</a></li>
+        <li class="list-group-item bg-white" id="lnkItem"><a href="">Item</a></li>
+        <li class="list-group-item bg-white" id="lnkOrders"><a href="">Orders</a></li>
     </ul>
 </header>
 
@@ -65,7 +65,7 @@
                     <span class="control-error" id="lblcussalary"></span>
                 </div>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary" id="btnCustomer">
+                    <button type="button" class="btn btn-primary" id="btnSaveCustomer">
                         Save Customer
                     </button>
                     <button type="button" class="btn btn-danger"
@@ -75,7 +75,7 @@
                             id="btnUpdate">Update
                     </button>
                     <button type="button" class="btn btn-success" id="btnGetAll">Get All</button>
-                    <button formaction="/pos_one" class="btn btn-danger" id="btn-clear1">Clear All</button>
+                    <button class="btn btn-danger" id="btn-clear1">Clear All</button>
                 </div>
             </form>
         </div>
@@ -100,6 +100,21 @@
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 
-
+<script>
+    $("btnSaveCustomer").click(function () {
+        let formData=$("customerContent").serialize();
+        $.ajax({
+            url:'customer',
+            method:'post',
+            data:formData,
+            success:function (res) {
+                alert("Student Added Succuss");
+            },
+            error:function (err) {
+                console.log(err);
+            }
+        });
+    });
+</script>
 </body>
 </html>
