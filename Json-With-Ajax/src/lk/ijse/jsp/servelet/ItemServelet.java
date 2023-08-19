@@ -51,4 +51,46 @@ public class ItemServelet extends HttpServlet {
         }
 
     }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String cusId = req.getParameter ("cID");
+        String cusName = req.getParameter ("cName");
+        String cusAddress = req.getParameter ("cAddress");
+        String salary = req.getParameter ("cSalary");
+
+        PrintWriter writer = resp.getWriter ();
+
+
+        try {
+            Class.forName ("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection ("jdbc:mysql://localhost:3306/AjaxJson", "root", "12345678");
+            PreparedStatement pstm = connection.prepareStatement ("insert into customer values(?,?,?,?)");
+
+            pstm.setObject (1, cusId);
+            pstm.setObject (2, cusName);
+            pstm.setObject (3, cusAddress);
+            pstm.setObject (4, salary);
+            if (pstm.executeUpdate () > 0) {
+
+                resp.addHeader("Content-Type","application/json");
+                JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
+                cussAdd.add ("state","200");
+                cussAdd.add ("massage"," Customer Added Succuss");
+                cussAdd.add ("data","");
+                resp.setStatus (200);
+                writer.print(cussAdd.build());
+
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+
+            resp.addHeader("Content-Type","application/json");
+            JsonObjectBuilder obj=Json.createObjectBuilder ();
+            obj.add ("state","");
+            obj.add ("massage",e.getMessage ());
+            obj.add ("data","");
+            resp.setStatus (400);
+            writer.print(obj.build());
+        }
+
+    }
 }

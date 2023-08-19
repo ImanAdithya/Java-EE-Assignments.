@@ -111,11 +111,11 @@
             method: 'get',
             success:function (item) {
                 for (let i in item) {
-                    let i = item[i];
-                    let id = i.itemId;
-                    let des = i.itemDes;
-                    let up = i.itemUp;
-                    let qty=i.itemQty;
+                    let It = item[i];
+                    let id = It.itemId;
+                    let des = It.itemDes;
+                    let up = It.itemUp;
+                    let qty=It.itemQty;
                     let row=`<tr><td>${id}</td><td>${des}</td><td>${up}</td><td>${qty}</td></tr>`;
                     $("#tblItem").append(row);
                 }
