@@ -43,7 +43,7 @@
     <section class="row">
         <div class="col-12 col-lg-4">
             <h1>ITEM MANAGEMENT</h1>
-            <form id="customerForm">
+            <form id="ItemForm">
                 <div class="form-group">
                     <label for="txtItemID">ITEM ID</label>
                     <input name="itemID" class="form-control" id="txtItemID" type="text">
@@ -84,12 +84,12 @@
                 <thead class="bg-danger text-white">
                 <tr>
                     <th>ITEM ID</th>
-                    <th>ITEM DES</th>
-                    <th>ITEM UNIT PRICE</th>
+                    <th>ITEM DESCRIPTION</th>
+                    <th>ITEM UPRICE</th>
                     <th>ITEM QTY</th>
                 </tr>
                 </thead>
-                <tbody id="tblITEM">
+                <tbody id="tblItem">
 
                 </tbody>
             </table>
@@ -101,6 +101,53 @@
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 
+<script>
+    getAllItem();
+    function getAllItem() {
+        $("#tblItem").empty();
+
+        $.ajax({
+            url: 'item',
+            method: 'get',
+            success:function (item) {
+                for (let i in item) {
+                    let i = item[i];
+                    let id = i.itemId;
+                    let des = i.itemDes;
+                    let up = i.itemUp;
+                    let qty=i.itemQty;
+                    let row=`<tr><td>${id}</td><td>${des}</td><td>${up}</td><td>${qty}</td></tr>`;
+                    $("#tblItem").append(row);
+                }
+            },
+            error:function (err) {
+                alert("ERROR LOAD DATA")
+            }
+        });
+    }
+
+    $("#btnItemGetAll").click(function () {
+        getAllItem();
+    });
+
+
+
+    $("#btnSaveItem").click(function () {
+        let formData=$("#ItemForm").serialize();
+        $.ajax({
+            url:'item',
+            method:'post',
+            data:formData,
+            success:function (res) {
+                getAllItem();
+                alert(res.massage);
+            },
+            error:function (err) {
+                alert(e.responseJSON.massage);
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
