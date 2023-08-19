@@ -23,18 +23,21 @@ public class CustomerServelet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String cusId = req.getParameter ("cusID");
-        String cusName = req.getParameter ("cusName");
-        String cusAddress = req.getParameter ("cusAddress");
-        double salary = Double.parseDouble (req.getParameter ("cusSalary"));
+        String cusId = req.getParameter ("cID");
+        String cusName = req.getParameter ("cName");
+        String cusAddress = req.getParameter ("cAddress");
+        String salary = req.getParameter ("cSalary");
+
+        System.out.println ("===========================================");
+        System.out.println (cusId+" cusID=================");
+        System.out.println (cusName+" cusName=================");
+        System.out.println ("===========================================");
 
         try {
             Class.forName ("com.mysql.cj.jdbc.Driver");
 
             Connection connection = DriverManager.getConnection ("jdbc:mysql://localhost:3306/AjaxJson", "root", "12345678");
-            PreparedStatement pstm = null;
-
-            pstm = connection.prepareStatement ("insert into Customer values(?,?,?,?)");
+            PreparedStatement pstm = connection.prepareStatement("insert into customer values(?,?,?,?)");
 
             pstm.setObject (1, cusId);
             pstm.setObject (2, cusName);

@@ -46,22 +46,22 @@
             <form id="customerForm">
                 <div class="form-group">
                     <label for="txtCustomerID">Customer ID</label>
-                    <input name="cusID" class="form-control" id="txtCustomerID" type="text">
+                    <input name="cID" class="form-control" id="txtCustomerID" type="text">
                     <span class="control-error" id="lblcusid"></span>
                 </div>
                 <div class="form-group">
                     <label for="txtCustomerName">Customer Name</label>
-                    <input name="cusName" class="form-control" id="txtCustomerName" type="text">
+                    <input name="cName" class="form-control" id="txtCustomerName" type="text">
                     <span class="control-error" id="lblcusname"></span>
                 </div>
                 <div class="form-group">
                     <label for="txtCustomerAddress">Customer Address</label>
-                    <input name="cusAddress" class="form-control" id="txtCustomerAddress" type="text">
+                    <input name="cAddress" class="form-control" id="txtCustomerAddress" type="text">
                     <span class="control-error" id="lblcusaddress"></span>
                 </div>
                 <div class="form-group">
                     <label for="txtCustomerSalary">Customer Salary</label>
-                    <input name="cusSalary" class="form-control" id="txtCustomerSalary" type="text">
+                    <input name="cSalary" class="form-control" id="txtCustomerSalary" type="text">
                     <span class="control-error" id="lblcussalary"></span>
                 </div>
                 <div class="btn-group">
@@ -75,7 +75,7 @@
                             id="btnUpdate">Update
                     </button>
                     <button type="button" class="btn btn-success" id="btnGetAll">Get All</button>
-                    <button class="btn btn-danger" id="btn-clear1">Clear All</button>
+                    <button type="button" class="btn btn-danger" id="btn-clear1">Clear All</button>
                 </div>
             </form>
         </div>
@@ -101,8 +101,8 @@
 <script src="../assets/js/bootstrap.min.js"></script>
 
 <script>
-    $("btnSaveCustomer").click(function () {
-        let formData=$("customerContent").serialize();
+    $("#btnSaveCustomer").click(function () {
+        let formData=$("#customerForm").serialize();
         $.ajax({
             url:'customer',
             method:'post',
