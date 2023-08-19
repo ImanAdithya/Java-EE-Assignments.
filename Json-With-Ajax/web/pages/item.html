@@ -147,6 +147,39 @@
             }
         });
     });
+
+    $("#btnItemUpdate").click(function () {
+        let itemId = $("#txtItemID").val();
+        let itemDes = $("#txtItemDes").val();
+        let itemUp = $("#txtItemUnitPrice").val();
+        let itemQty=$("#txtItemQty").val();
+
+        $.ajax({
+            url:'item?id='+itemId+'&des='+itemDes+'&up='+itemUp+'&qty='+itemQty,
+            method:'PUT',
+            success:function (res) {
+                alert(res.massage);
+                getAllItem()
+            },
+            error:function (err) {
+                alert(e.responseJSON.massage);
+            }
+        });
+    });
+
+    $("#btnItemDelete").click(function () {
+        let itemID = $("#txtItemID").val();
+        $.ajax({
+            url:'item?id='+itemID,
+            method:'DELETE',
+            success:function () {
+                getAllItem()
+                alert(res.massage);
+            },error:function () {
+                alert(e.responseJSON.massage);
+            }
+        });
+    });
 </script>
 
 </body>

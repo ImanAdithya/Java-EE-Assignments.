@@ -115,7 +115,7 @@ public class ItemServelet extends HttpServlet {
                 resp.addHeader("Content-Type","application/json");
                 JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
                 cussAdd.add ("state","200");
-                cussAdd.add ("massage"," Customer Updated Succuss");
+                cussAdd.add ("massage"," Item Updated Succuss");
                 cussAdd.add ("data","");
                 resp.setStatus (200);
                 writer.print(cussAdd.build());
@@ -149,7 +149,7 @@ public class ItemServelet extends HttpServlet {
                 resp.addHeader("Content-Type","application/json");
                 JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
                 cussAdd.add ("state","200");
-                cussAdd.add ("massage"," Customer Deleted Succuss");
+                cussAdd.add ("massage"," Item Deleted Succuss");
                 cussAdd.add ("data","");
                 resp.setStatus (200);
                 writer.print(cussAdd.build());
