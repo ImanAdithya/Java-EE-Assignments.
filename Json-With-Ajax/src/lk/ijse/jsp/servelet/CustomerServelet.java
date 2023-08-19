@@ -85,16 +85,18 @@ public class CustomerServelet extends HttpServlet {
         String cusId = req.getParameter ("id");
         String cusName = req.getParameter ("name");
         String cusAddress = req.getParameter ("address");
+        String cusSalary = req.getParameter ("salary");
 
 
         try {
 
             Class.forName ("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection ("jdbc:mysql://localhost:3306/AjaxJson", "root", "12345678");
-            PreparedStatement pstm3 = connection.prepareStatement ("update Customer set name=?,address=? where id=?");
-            pstm3.setObject (3, cusId);
+            PreparedStatement pstm3 = connection.prepareStatement ("update Customer set name=?,address=?,salary=? where id=?");
+            pstm3.setObject (4, cusId);
             pstm3.setObject (1, cusName);
             pstm3.setObject (2, cusAddress);
+            pstm3.setObject (3, cusSalary);
             if (pstm3.executeUpdate () > 0) {
                 System.out.println ("Customer Updated");
             } else {
