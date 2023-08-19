@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="json-ajax">
+    <output-path>$PROJECT_DIR$/out/artifacts/json_ajax</output-path>
+    <root id="archive" name="json-ajax.war">
+      <element id="javaee-facet-resources" facet="Json-With-Ajax/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Json-With-Ajax" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
