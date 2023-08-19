@@ -60,6 +60,8 @@ public class CustomerServelet extends HttpServlet {
         String cusAddress = req.getParameter ("cAddress");
         String salary = req.getParameter ("cSalary");
 
+        PrintWriter writer = resp.getWriter ();
+
 
         try {
             Class.forName ("com.mysql.cj.jdbc.Driver");
@@ -71,10 +73,24 @@ public class CustomerServelet extends HttpServlet {
             pstm.setObject (3, cusAddress);
             pstm.setObject (4, salary);
             if (pstm.executeUpdate () > 0) {
-                System.out.println ("Customer Added Succuss");
+
+                resp.addHeader("Content-Type","application/json");
+                JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
+                cussAdd.add ("state","OK");
+                cussAdd.add ("massage"," Customer Added Succuss");
+                cussAdd.add ("data","");
+                writer.print(cussAdd.build());
+
             }
         } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException (e);
+
+            resp.addHeader("Content-Type","application/json");
+            JsonObjectBuilder obj=Json.createObjectBuilder ();
+            obj.add ("state","");
+            obj.add ("massage",e.getMessage ());
+            obj.add ("data","");
+            resp.setStatus (400);
+            writer.print(obj.build());
         }
 
     }
@@ -87,6 +103,7 @@ public class CustomerServelet extends HttpServlet {
         String cusAddress = req.getParameter ("address");
         String cusSalary = req.getParameter ("salary");
 
+        PrintWriter writer = resp.getWriter ();
 
         try {
 
@@ -104,7 +121,13 @@ public class CustomerServelet extends HttpServlet {
             }
 
         } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException (e);
+            resp.addHeader("Content-Type","application/json");
+            JsonObjectBuilder obj=Json.createObjectBuilder ();
+            obj.add ("state","");
+            obj.add ("massage",e.getMessage ());
+            obj.add ("data","");
+            resp.setStatus (400);
+            writer.print(obj.build());
         }
 
     }
@@ -113,6 +136,7 @@ public class CustomerServelet extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String cusID=req.getParameter ("id");
+        PrintWriter writer = resp.getWriter ();
         try {
             Class.forName ("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection ("jdbc:mysql://localhost:3306/AjaxJson", "root", "12345678");
@@ -122,7 +146,13 @@ public class CustomerServelet extends HttpServlet {
                 resp.getWriter ().println ("Customer Deleted..!");
             }
         } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException (e);
+            resp.addHeader("Content-Type","application/json");
+            JsonObjectBuilder obj=Json.createObjectBuilder ();
+            obj.add ("state","");
+            obj.add ("massage",e.getMessage ());
+            obj.add ("data","");
+            resp.setStatus (400);
+            writer.print(obj.build());
         }
     }
 

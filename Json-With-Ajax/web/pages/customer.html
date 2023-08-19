@@ -140,10 +140,10 @@
             data:formData,
             success:function (res) {
                 getAllCustomer();
-                alert("Student Added Succuss");
+                alert(res.massage);
             },
             error:function (err) {
-                console.log(err);
+                alert(e.responseJSON.massage);
             }
         });
     });
@@ -162,7 +162,7 @@
                 getAllCustomer();
             },
             error:function (err) {
-                alert("Something Went wrong...");
+                alert(e.responseJSON.massage);
             }
         });
     });
@@ -176,7 +176,7 @@
                 getAllCustomer();
                 alert("Customer Deleted Succuss");
             },error:function () {
-                alert("Something Went Wrong..")
+                alert(e.responseJSON.massage);
             }
         });
     });
