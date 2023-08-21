@@ -53,12 +53,23 @@ public class CustomerServelet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String cusId = req.getParameter ("cID");
-        String cusName = req.getParameter ("cName");
-        String cusAddress = req.getParameter ("cAddress");
-        String salary = req.getParameter ("cSalary");
+//        String cusId = req.getParameter ("cID");
+//        String cusName = req.getParameter ("cName");
+//        String cusAddress = req.getParameter ("cAddress");
+//        String salary = req.getParameter ("cSalary");
 
         PrintWriter writer = resp.getWriter ();
+
+        JsonReader reader = Json.createReader (req.getReader ());
+        JsonObject jsonObject = reader.readObject ();
+
+
+
+        String cusId=jsonObject.getString ("id");
+        String cusName=jsonObject.getString ("name");
+        String cusAddress =jsonObject.getString ("address");
+        String salary=jsonObject.getString ("salary");
+
 
 
         try {
@@ -106,6 +117,7 @@ public class CustomerServelet extends HttpServlet {
 
         JsonReader reader = Json.createReader (req.getReader ());
         JsonObject jsonObject = reader.readObject ();
+
         String id=jsonObject.getString ("id");
         String name=jsonObject.getString ("name");
         String address =jsonObject.getString ("address");
@@ -151,8 +163,14 @@ public class CustomerServelet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String cusID=req.getParameter ("id");
         PrintWriter writer = resp.getWriter ();
+
+        JsonReader reader = Json.createReader (req.getReader ());
+        JsonObject jsonObject = reader.readObject ();
+
+        String cusID=jsonObject.getString ("id");
+
+
         try {
             Class.forName ("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection ("jdbc:mysql://localhost:3306/AjaxJson", "root", "12345678");
