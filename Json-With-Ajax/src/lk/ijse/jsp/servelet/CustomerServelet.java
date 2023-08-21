@@ -1,8 +1,6 @@
 package lk.ijse.jsp.servelet;
 
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
+import javax.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -87,7 +85,7 @@ public class CustomerServelet extends HttpServlet {
 
             resp.addHeader("Content-Type","application/json");
             JsonObjectBuilder obj=Json.createObjectBuilder ();
-            obj.add ("state","");
+            obj.add ("state","400");
             obj.add ("massage",e.getMessage ());
             obj.add ("data","");
             resp.setStatus (400);
@@ -98,24 +96,34 @@ public class CustomerServelet extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        String cusId = req.getParameter ("id");
-        String cusName = req.getParameter ("name");
-        String cusAddress = req.getParameter ("address");
-        String cusSalary = req.getParameter ("salary");
+//
+//        String cusId = req.getParameter ("id");
+//        String cusName = req.getParameter ("name");
+//        String cusAddress = req.getParameter ("address");
+//        String cusSalary = req.getParameter ("salary");
 
         PrintWriter writer = resp.getWriter ();
+
+        JsonReader reader = Json.createReader (req.getReader ());
+        JsonObject jsonObject = reader.readObject ();
+        String id=jsonObject.getString ("id");
+        String name=jsonObject.getString ("name");
+        String address =jsonObject.getString ("address");
+        String salary=jsonObject.getString ("salary");
 
         try {
 
             Class.forName ("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection ("jdbc:mysql://localhost:3306/AjaxJson", "root", "12345678");
             PreparedStatement pstm3 = connection.prepareStatement ("update Customer set name=?,address=?,salary=? where id=?");
-            pstm3.setObject (4, cusId);
-            pstm3.setObject (1, cusName);
-            pstm3.setObject (2, cusAddress);
-            pstm3.setObject (3, cusSalary);
+
+            pstm3.setObject (4, id);
+            pstm3.setObject (1, name);
+            pstm3.setObject (2, address);
+            pstm3.setObject (3, salary);
+
             if (pstm3.executeUpdate () > 0) {
+
                 resp.addHeader("Content-Type","application/json");
                 JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
                 cussAdd.add ("state","200");
@@ -123,6 +131,7 @@ public class CustomerServelet extends HttpServlet {
                 cussAdd.add ("data","");
                 resp.setStatus (200);
                 writer.print(cussAdd.build());
+
             } else {
                 throw new SQLException ();
             }

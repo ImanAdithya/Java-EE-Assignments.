@@ -149,18 +149,24 @@
     });
 
     $("#btnUpdate").click(function () {
+
         let cusId = $("#txtCustomerID").val();
         let cusName = $("#txtCustomerName").val();
         let cusAddress = $("#txtCustomerAddress").val();
         let cusSalary=$("#txtCustomerSalary").val();
 
-        let customerobj={
-            
+        let customerObj={
+            id:cusId,
+            name:cusName,
+            address:cusAddress,
+            salary:cusSalary
         }
 
         $.ajax({
-            url:'customer?id='+cusId+'&name='+cusName+'&address='+cusAddress+'&salary='+cusSalary,
+            url:'customer',
             method:'PUT',
+            data: JSON.stringify(customerObj), // Convert the object to JSON string
+            contentType: 'application/json',
             success:function (res) {
                 alert("Customer Updated Succus");
                 getAllCustomer();
