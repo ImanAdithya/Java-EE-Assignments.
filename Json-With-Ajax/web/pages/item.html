@@ -154,9 +154,17 @@
         let itemUp = $("#txtItemUnitPrice").val();
         let itemQty=$("#txtItemQty").val();
 
+        let itemObj={
+            id:itemId,
+            des:itemDes,
+            up:itemUp,
+            qty:itemQty
+        }
         $.ajax({
-            url:'item?id='+itemId+'&des='+itemDes+'&up='+itemUp+'&qty='+itemQty,
+            url:'item',
             method:'PUT',
+            data: JSON.stringify(itemObj), // Convert the object to JSON string
+            contentType: 'application/json',
             success:function (res) {
                 alert(res.massage);
                 getAllItem()
