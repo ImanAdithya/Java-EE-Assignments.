@@ -133,23 +133,10 @@
 
 
     $("#btnSaveCustomer").click(function () {
-        // let formData=$("#customerForm").serialize();
-        let cusId = $("#txtCustomerID").val();
-        let cusName = $("#txtCustomerName").val();
-        let cusAddress = $("#txtCustomerAddress").val();
-        let cusSalary=$("#txtCustomerSalary").val();
-
-        let customerObj={
-            id:cusId,
-            name:cusName,
-            address:cusAddress,
-            salary:cusSalary
-        }
+        let formData=$("#customerForm").serialize();
         $.ajax({
             url:'customer',
             method:'post',
-            data: JSON.stringify(customerObj), // Convert the object to JSON string
-            contentType: 'application/json',
             success:function (res) {
                 getAllCustomer();
                 alert(res.massage);
@@ -191,22 +178,9 @@
 
     $("#btnCusDelete").click(function () {
         let cusId = $("#txtCustomerID").val();
-        let cusName = $("#txtCustomerName").val();
-        let cusAddress = $("#txtCustomerAddress").val();
-        let cusSalary=$("#txtCustomerSalary").val();
-
-        let customerObj={
-            id:cusId,
-            name:cusName,
-            address:cusAddress,
-            salary:cusSalary
-        }
-
         $.ajax({
-            url:'customer',
+            url:'customer?id='+cusId,
             method:'DELETE',
-            data: JSON.stringify(customerObj), // Convert the object to JSON string
-            contentType: 'application/json',
             success:function () {
                 getAllCustomer();
                 alert("Customer Deleted Succuss");

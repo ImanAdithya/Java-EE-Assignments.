@@ -26,6 +26,9 @@ public class CustomerServelet extends HttpServlet {
 
             JsonArrayBuilder allCustomer = Json.createArrayBuilder ();
 
+            JsonReader reader=Json.createReader (req.getReader ());
+            reader.readArray ();
+
             while (rst.next ()) {
                 String id = rst.getString (1);
                 String name = rst.getString (2);
@@ -53,22 +56,12 @@ public class CustomerServelet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String cusId = req.getParameter ("cID");
-//        String cusName = req.getParameter ("cName");
-//        String cusAddress = req.getParameter ("cAddress");
-//        String salary = req.getParameter ("cSalary");
+        String cusId = req.getParameter ("cID");
+        String cusName = req.getParameter ("cName");
+        String cusAddress = req.getParameter ("cAddress");
+        String salary = req.getParameter ("cSalary");
 
         PrintWriter writer = resp.getWriter ();
-
-        JsonReader reader = Json.createReader (req.getReader ());
-        JsonObject jsonObject = reader.readObject ();
-
-
-
-        String cusId=jsonObject.getString ("id");
-        String cusName=jsonObject.getString ("name");
-        String cusAddress =jsonObject.getString ("address");
-        String salary=jsonObject.getString ("salary");
 
 
 
@@ -165,10 +158,7 @@ public class CustomerServelet extends HttpServlet {
 
         PrintWriter writer = resp.getWriter ();
 
-        JsonReader reader = Json.createReader (req.getReader ());
-        JsonObject jsonObject = reader.readObject ();
-
-        String cusID=jsonObject.getString ("id");
+        String cusID=req.getParameter ("id");
 
 
         try {
