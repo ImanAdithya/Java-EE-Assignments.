@@ -154,6 +154,10 @@
         let cusAddress = $("#txtCustomerAddress").val();
         let cusSalary=$("#txtCustomerSalary").val();
 
+        let customerobj={
+            
+        }
+
         $.ajax({
             url:'customer?id='+cusId+'&name='+cusName+'&address='+cusAddress+'&salary='+cusSalary,
             method:'PUT',
