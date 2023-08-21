@@ -10,8 +10,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dbf38cc-00e0-41f8-be21-023846ec2c1a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/jquery-3.6.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/assets/js/jquery-3.7.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/pages/customer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front-End/pages/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Json-With-Ajax/src/lk/ijse/jsp/servelet/CustomerServelet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Json-With-Ajax/src/lk/ijse/jsp/servelet/CustomerServelet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Json-With-Ajax/web/pages/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/Json-With-Ajax/web/pages/customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Json-With-Ajax/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Json-With-Ajax/web/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +82,12 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/imanadithya/Software Engineering/IJSE/2SEMESTER/Java 2E Assignments/Java-EE-Assignments/Json-With-Ajax/web/assets&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/imanadithya/Software Engineering/IJSE/2SEMESTER/Java 2E Assignments/Java-EE-Assignments/Front-End&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -66,6 +95,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Front-End" />
       <recent name="$PROJECT_DIR$/Json-With-Ajax/web/assets" />
     </key>
   </component>
@@ -261,7 +291,8 @@
       <updated>1692415103961</updated>
       <workItem from="1692415107182" duration="146000" />
       <workItem from="1692415273647" duration="19009000" />
-      <workItem from="1692588082787" duration="6425000" />
+      <workItem from="1692588082787" duration="11477000" />
+      <workItem from="1692608517741" duration="4623000" />
     </task>
     <servers />
   </component>

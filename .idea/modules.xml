@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Front-End.iml" filepath="$PROJECT_DIR$/Front-End.iml" />
       <module fileurl="file://$PROJECT_DIR$/Json-With-Ajax/Json-With-Ajax.iml" filepath="$PROJECT_DIR$/Json-With-Ajax/Json-With-Ajax.iml" />
     </modules>
   </component>

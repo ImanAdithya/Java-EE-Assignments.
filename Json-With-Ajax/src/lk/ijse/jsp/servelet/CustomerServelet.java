@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
+
 @WebServlet(urlPatterns = {"/pages/customer"})
 public class CustomerServelet extends HttpServlet {
 
@@ -23,11 +24,10 @@ public class CustomerServelet extends HttpServlet {
             ResultSet rst = pstm.executeQuery ();
             PrintWriter writer = resp.getWriter ();
             resp.addHeader ("Content-Type", "application/json");
+            resp.addHeader ("Access-Control-Allow-Origin", "*");
 
             JsonArrayBuilder allCustomer = Json.createArrayBuilder ();
 
-            JsonReader reader=Json.createReader (req.getReader ());
-            reader.readArray ();
 
             while (rst.next ()) {
                 String id = rst.getString (1);
@@ -63,8 +63,6 @@ public class CustomerServelet extends HttpServlet {
 
         PrintWriter writer = resp.getWriter ();
 
-
-
         try {
             Class.forName ("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection ("jdbc:mysql://localhost:3306/AjaxJson", "root", "12345678");
@@ -77,6 +75,8 @@ public class CustomerServelet extends HttpServlet {
             if (pstm.executeUpdate () > 0) {
 
                 resp.addHeader("Content-Type","application/json");
+                resp.addHeader ("Access-Control-Allow-Origin", "*");
+
                 JsonObjectBuilder cussAdd=Json.createObjectBuilder ();
                 cussAdd.add ("state","200");
                 cussAdd.add ("massage"," Customer Added Succuss");
@@ -105,6 +105,7 @@ public class CustomerServelet extends HttpServlet {
 //        String cusName = req.getParameter ("name");
 //        String cusAddress = req.getParameter ("address");
 //        String cusSalary = req.getParameter ("salary");
+        resp.addHeader ("Access-Control-Allow-Origin", "*");
 
         PrintWriter writer = resp.getWriter ();
 
@@ -160,6 +161,8 @@ public class CustomerServelet extends HttpServlet {
 
         String cusID=req.getParameter ("id");
 
+        resp.addHeader ("Access-Control-Allow-Origin", "*");
+
 
         try {
             Class.forName ("com.mysql.cj.jdbc.Driver");
@@ -186,4 +189,12 @@ public class CustomerServelet extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //preflight
+        resp.addHeader ("Access-Control-Allow-Origin", "*");
+        resp.addHeader ("Access-Control-Allow-Methods", "PUT");
+        resp.addHeader ("Access-Control-Allow-Methods", "DELETE");
+        resp.addHeader ("Access-Control-Allow-Headers", "Content-Type");
+    }
 }
